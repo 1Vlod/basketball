@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(backg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-attachment: fixed;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo{
+    width: 200px;
+    max-width: 30%;
+    animation-name: infiniteRotate;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    border-radius: 100%;
+}
+.header__logo:hover{
+    animation-play-state:paused;
+}
+.app{
+    /* width: 400px;
+    height: 500px; */
+    min-width: 400px;
+    background: white;
+    border-radius: 20px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    box-shadow: 0 0 20px black;
+}
+.app__header{
+    text-align: center;
+    padding: 0.5rem;
+    border-bottom: 2px solid #ccc;
+}
+.app__score{
+    font-size: 3rem;
+}
+.app__main{
+    padding: 1rem;
+}
+
+
+
+
+/* message */
+.message{
+    font-size: 1.5rem;
+}
+.message-winner{
+    margin-top: 5px;
+}
+
+
+/* Btn */
+.btn{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    background: black;
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    transition: all .5s;
+}
+.btn:hover{
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px #000;
+}
+.btn-start{
+    display: block;
+    margin: 0 auto;
+}
+
+
+
+/* Keyframes */
+@keyframes infiniteRotate{
+    0%{
+        transform: rotateZ(0);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
