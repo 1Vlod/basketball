@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 body{
@@ -15,11 +16,12 @@ body{
     display: flex;
     justify-content: center;
 }
+
+/* header */
 .header{
     display: flex;
     justify-content: center;
 }
-
 .header__logo{
     width: 200px;
     max-width: 30%;
@@ -32,6 +34,9 @@ body{
 .header__logo:hover{
     animation-play-state:paused;
 }
+
+
+/* Application */
 .app{
     /* width: 400px;
     height: 500px; */
@@ -52,10 +57,29 @@ body{
 }
 .app__main{
     padding: 1rem;
+    position: relative;
+}
+.app__footer{
+    text-align: center;
+    padding: 0.5rem;
+    border-top: 2px solid #ccc;
 }
 
 
 
+/* BallSide */
+.ballSide{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+}
+.ballSide i{
+    font-size: 2rem;
+    color: rgb(255, 115, 0);
+    background: black;
+    border-radius: 50%;
+    
+}
 
 /* message */
 .message{
@@ -63,6 +87,9 @@ body{
 }
 .message-winner{
     margin-top: 5px;
+}
+.message-action{
+    font-size: 2rem;
 }
 
 
