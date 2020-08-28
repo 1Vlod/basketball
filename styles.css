@@ -64,9 +64,24 @@ body{
     padding: 0.5rem;
     border-top: 2px solid #ccc;
 }
-
-
-
+.app__teams{
+    display: flex;
+    justify-content: space-between;
+}
+.app__team-name{
+    text-align: right;
+    width: 40%;
+    outline: none;
+    font-size: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+.app__team-name:focus{
+    border: 1px solid black;
+}
+[data-teamname="left"]{
+    text-align: left;
+}
 /* BallSide */
 .ballSide{
     position: absolute;

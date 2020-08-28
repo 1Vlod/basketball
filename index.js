@@ -6,8 +6,10 @@ const $btn_play = document.querySelector("#btn")
 const $messageWin = document.querySelector("#messageWin")
 const $messageAct = document.querySelector("#messageAct")
 const $timer = document.querySelector("#timer")
+const $teamNames = document.querySelector("#teams")
 
-//initialization
+
+//variables
 let leftSideScore;
 let rightSideScore;
 let ballKeep = null;
@@ -25,10 +27,17 @@ const chances = {
     right: 50
   }
 }
-let timeLeft = 60;
+
+let leftTeamName = "Left team"
+let rightTeamName = "Right team"
+// let timeLeft = 60;
+
+
+
+
 //listeners
 $btn_play.addEventListener("click", startGame)
-  
+$teamNames.addEventListener("input", changeNames)
 
 
 //main functions
@@ -67,7 +76,7 @@ function createGame() {
 createGame()
 function faceOff(message, {startTime}){
   const playAction = {
-    side: getRandom(0, 100) > chances.faceOffChances ? "left" : "right" ,
+    side: getRandom(0, 100) > chances.faceOffChances ? leftTeamName : rightTeamName ,
     message: showMessageAct.bind(null, message),
     startTime: startTime - 1,
     type: "faceOff"
@@ -132,32 +141,6 @@ function plus2p(side) {
   side == "left" ? leftSideScore += 2 : rightSideScore += 2
   changeScore()
 }
-// async function startGame(e){
-//   timePlay()
-//   clear()
-//   const $elem = e.target
-//   $elem.disabled = true
-  
-//   while(timer.innerHTML > 0){
-//     if (!ballKeep) {
-//       await faceOff() 
-//       ballKeep = await getBall()
-//     }
-//     await new Promise(resolve => {
-//       setTimeout(async function(){
-//         if(ballKeep == "left"){
-//           await throwBall(leftSideThrowChances)
-//         }else{
-//           await throwBall(rightSideThrowChances)
-//         }
-//         resolve()
-//         console.log(timeLeft--)
-//       }, 0)
-//     })
-//   }
-//   determWinner()
-//   $elem.disabled = false
-// }
 
 
 function startTimer() {
@@ -180,14 +163,6 @@ function determWinner(){
   }
 }
 
-
-
-
-
-function determSide(side){
-  
-}
-
 function showMessageAct(message){
   console.log(message)
   $messageAct.textContent = message
@@ -197,9 +172,21 @@ function changeScore(){
   $score.innerHTML = `${leftSideScore} : ${rightSideScore}`
 }
 
+//teamNames functions
+
+function changeNames(event) {
+  if (event.target.dataset.teamname) {
+    if (event.target.dataset.teamname == "left") {
+      leftTeamName = event.target.textContent
+    } else if (event.target.dataset.teamname == "right") {
+      rightTeamName = event.target.textContent
+    }
+    
+  }
+}
 
 
-//add functions
+//utils
 
 function getRandom(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min)
